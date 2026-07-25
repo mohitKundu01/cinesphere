@@ -3,6 +3,7 @@ package com.cinesphere.cinesphere.movie.controller;
 import com.cinesphere.cinesphere.movie.model.Movie;
 import com.cinesphere.cinesphere.movie.service.MovieService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,5 +22,10 @@ public class MovieController {
     @GetMapping
     public List<Movie> getAllMovies(){
         return movieService.getAllMovies();
+    }
+
+    @GetMapping("/{id}")
+    public Movie getMovieById(@PathVariable Long id){
+        return movieService.getMovieById(id);
     }
 }
